@@ -1,27 +1,30 @@
 #include<stdio.h>
-
-void decimal(int d)
+void dec_to_bin(int d)
 {
-	int i = 0,b;
-	int a[10];
-	while (d != 0)
+	int o,i=0;
+	int a[100];
+	if (d >= 0)
 	{
-		b = d % 2;
-		d = d / 2;
-		a[i] = b;
-		i++;
+		while (d != 0)
+		{
+			o = d % 2;
+			d = d / 2;
+			a[i] = o;
+			i++;
+		}
+		for (int j = i - 1; j >= 0; j--)
+		{
+			printf("%d", a[j]);
+		}
 	}
-	//printf("%d", i);
-	for (int j = i-1; j >=0; j--) {
-		printf("%d", a[j]);
+	else {
+		printf("Error input");
 	}
 }
-
 int main()
 {
 	int x;
-	printf("Number Dec :");
+	printf("Enter decimal :");
 	scanf_s("%d", &x);
-	decimal(x);
+	dec_to_bin(x);
 }
-
